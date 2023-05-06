@@ -4,7 +4,7 @@ from . import views
 app_name = "drone_app"
 
 urlpatterns = [
-    path("api_root/", views.ApiRootView.as_view(), name="api-root"),
+    path("", views.ApiRootView.as_view(), name="api-root"),
     path("drones/", views.DroneList.as_view(), name="drone-list"),
     path("drones/<int:pk>/", views.DroneDetail.as_view(), name="drone-detail"),
     path(

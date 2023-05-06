@@ -14,16 +14,17 @@ class DroneSerializer(serializers.ModelSerializer):
     drone_category = serializers.SlugRelatedField(
         queryset=DroneCategory.objects.all(), slug_field="name"
     )
+    url = serializers.HyperlinkedIdentityField(view_name="drone:drone-detail")
 
     class Meta:
         model = Drone
         fields = (
-            "id",
             "name",
             "drone_category",
             "manufacturing_date",
             "has_it_competed",
             "inserted_timestamp",
+            "url",
         )
 
 
